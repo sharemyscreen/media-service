@@ -38,7 +38,7 @@ You can also configure the service by setting environment variables.
 
 ## Overview
 
-ShareMyScreen Media Service uses [socket.io](socket.io) to communicate data over network.
+ShareMyScreen Media Service uses [socket.io](http://socket.io) to communicate data over network.
 It is **strongly recommended** to read some of the official documentation to get used to.
 
 Here are some other useful links:
