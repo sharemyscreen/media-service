@@ -84,3 +84,34 @@ After having successfully connected the socket, the media service will expect it
 ```
 
 The **access_token** is a regular access token given by the [Login Service](http://login.sharemyscreen.fr:3000/doc/1.0.2/index.html#routes-v1-oauth2-token-post).
+
+## Events
+
+### Triggered server side
+
+##### Namespace scope
+
+* `user_connected: { user_id: }` - emitted when a user connects to the namespace.
+* `user_disconnected: { user_id: }` - emitted when a user disconnects to the namespace.
+
+##### Channel scope
+
+* `user_joined: { user_id: , room_id: }` - emitted when a user joined the room.
+* `user_left: { user_id: , room_id: }` - emitted when a user left the room.
+* `user_message: { user_id: , room_id: , content: }` - emitted when a user sent a message to the room.
+* `user_call: { user_id: , room_id: , content: }` - emitted when a user starts a call.
+* `user_call_accepted: { user_id: , room_id: }` - emitted when a user accepts a call.
+ 
+##### User scope
+
+* `user_invite: { user_id: , room_id: }` - emitted when a user invites the client.
+* `user_kick: { user_id: , room_id: }` - emitted when a user kicks the client.
+
+### Triggered client side
+
+* `create_room: { name: , users_id: [] }` - to emit to create a room.
+* `delete_room: { room_id: }` - to emit to delete a room.
+* `kick_user: { room_id: , users_id: [] }` - to emit to kick a user from a room.
+* `invite_user: { room_id: , users_id: [] }` - to emit to invite a user in a room.
+* `call: { room_id: }` - to emit to start a call.
+* `message: { room_id: , content: }` - to emit to send a message to the room.
