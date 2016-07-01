@@ -138,6 +138,7 @@ Events emitted from server to client are to be listened on as the following exam
 ### client -> server
 
 Events emitted from client to server are to be sent as the following example:
+```html
 <!-- Example for create_room: { name, [users_id] } -->
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script type="text/javascript">
