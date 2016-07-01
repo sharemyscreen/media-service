@@ -89,9 +89,9 @@ The **access_token** is a regular access token given by the [Login Service](http
 
 ### server -> client
 
-Event sent by the server to the client will be to be listened on as the following example:
+Events emitted from server to client are to be listened on as the following example:
 ```html
-<!-- room scope: user_joined: { user_id, room_id } -->
+<!-- Example for room scope: user_joined: { user_id, room_id } -->
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script type="text/javascript">
   var socket = io.connect('ws://localhost:5000/${organization_public_id}');
@@ -136,6 +136,24 @@ Event sent by the server to the client will be to be listened on as the followin
 * `called: { user_id, room_id }` - emitted when you are being called from a room.
 
 ### client -> server
+
+Events emitted from client to server are to be sent as the following example:
+<!-- Example for create_room: { name, [users_id] } -->
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script type="text/javascript">
+  var socket = io.connect('ws://localhost:5000/${organization_public_id}');
+  
+  /* ... */
+  
+  socket.emit('action', {
+    cmd: 'create_room',
+    name: 'foobar',
+    users_id: [user1._id, user2._id, user3._id]
+  });
+  
+  /* ... */
+</script>
+```
 
 * `list_rooms: {}` - to emit to get all rooms you are in.
 * `create_room: { name, [users_id] }` - to emit to create a room.
