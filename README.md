@@ -87,34 +87,35 @@ The **access_token** is a regular access token given by the [Login Service](http
 
 ## Events
 
-### Server -> Client
+### server -> client
 
-##### Namespace Scope
+##### namespace ccope
 
-* `user_connected: { user_id: }` - emitted when a user connects to the namespace.
-* `user_disconnected: { user_id: }` - emitted when a user disconnects to the namespace.
+* `user_connected: { user_id }` - emitted when a user connects to the namespace.
+* `user_disconnected: { user_id }` - emitted when a user disconnects from the namespace.
 
-##### Room Scope
+##### room scope
 
-* `user_joined: { user_id: , room_id: }` - emitted when a user joined the room.
-* `user_left: { user_id: , room_id: }` - emitted when a user left the room.
-* `user_message: { user_id: , room_id: , content: }` - emitted when a user sent a message to the room.
-* `user_call: { user_id: , room_id: , content: }` - emitted when a user starts a call.
-* `user_call_accepted: { user_id: , room_id: }` - emitted when a user accepts a call.
+* `user_joined: { user_id, room_id }` - emitted when a user joined the room.
+* `user_left: { user_id, room_id }` - emitted when a user left the room.
+* `user_message: { user_id, room_id, content }` - emitted when a user sent a message to the room.
+* `user_call_started: { user_id, room_id, content }` - emitted when a user starts a call.
+* `user_call_accepted: { user_id, room_id }` - emitted when a user accepts a call.
+* `user_call_rejected: { user_id, room_id }` - emitted when a user accepts a call.
  
-##### User Scope
+##### user scope
 
-* `invited: { user_id: , room_id: }` - emitted when you have been added to a room.
-* `kicked: { user_id: , room_id: }` - emitted when you have been removed from a room.
-* `called: { user_id: , room_id: }` - emitted you are being called from a room.
+* `invited: { user_id, room_id }` - emitted when you have been added to a room.
+* `kicked: { user_id, room_id }` - emitted when you have been removed from a room.
+* `called: { user_id, room_id }` - emitted when you are being called from a room.
 
-### Client -> Server
+### client -> server
 
-* `create_room: { name: , users_id: [] }` - to emit to create a room.
-* `delete_room: { room_id: }` - to emit to delete a room.
-* `kick_user: { room_id: , users_id: [] }` - to emit to kick a user from a room.
-* `invite_user: { room_id: , users_id: [] }` - to emit to invite a user in a room.
-* `call: { room_id: }` - to emit to start a call.
-* `accept_call: { room_id: }` - to emit to accept a call.
-* `reject_call: { room_id: }` - to emit to reject a call.
-* `message: { room_id: , content: }` - to emit to send a message to the room.
+* `create_room: { name, [users_id] }` - to emit to create a room.
+* `delete_room: { room_id }` - to emit to delete a room.
+* `kick_user: { room_id, [users_id] }` - to emit to kick a user from a room.
+* `invite_user: { room_id, [users_id] }` - to emit to invite a user in a room.
+* `start_call: { room_id }` - to emit to start a call.
+* `accept_call: { room_id }` - to emit to accept a call.
+* `reject_call: { room_id }` - to emit to reject a call.
+* `send_message: { room_id, content }` - to emit to send a message to the room.
