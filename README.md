@@ -124,7 +124,7 @@ Events emitted from server to client are to be listened on as the following exam
 * `user_joined: { user_id, room_id }` - emitted when a user joined the room.
 * `user_left: { user_id, room_id }` - emitted when a user left the room.
 * `user_message: { user_id, room_id, content }` - emitted when a user sent a message to the room.
-* `user_call_started: { user_id, room_id, content }` - emitted when a user starts a call.
+* `user_call_started: { user_id, room_id }` - emitted when a user starts a call.
 * `user_call_accepted: { user_id, room_id }` - emitted when a user accepts a call.
 * `user_call_rejected: { user_id, room_id }` - emitted when a user rejects a call.
  
