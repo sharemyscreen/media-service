@@ -87,14 +87,14 @@ The **access_token** is a regular access token given by the [Login Service](http
 
 ## Events
 
-### Triggered server side
+### Server -> Client
 
-##### Namespace scope
+##### Namespace Scope
 
 * `user_connected: { user_id: }` - emitted when a user connects to the namespace.
 * `user_disconnected: { user_id: }` - emitted when a user disconnects to the namespace.
 
-##### Channel scope
+##### Room Scope
 
 * `user_joined: { user_id: , room_id: }` - emitted when a user joined the room.
 * `user_left: { user_id: , room_id: }` - emitted when a user left the room.
@@ -102,12 +102,12 @@ The **access_token** is a regular access token given by the [Login Service](http
 * `user_call: { user_id: , room_id: , content: }` - emitted when a user starts a call.
 * `user_call_accepted: { user_id: , room_id: }` - emitted when a user accepts a call.
  
-##### User scope
+##### User Scope
 
-* `user_invite: { user_id: , room_id: }` - emitted when a user invites the client.
-* `user_kick: { user_id: , room_id: }` - emitted when a user kicks the client.
+* `invited: { user_id: , room_id: }` - emitted you've been added to a room.
+* `kicked: { user_id: , room_id: }` - emitted you've been removed from a room.
 
-### Triggered client side
+### Client -> Server
 
 * `create_room: { name: , users_id: [] }` - to emit to create a room.
 * `delete_room: { room_id: }` - to emit to delete a room.
