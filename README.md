@@ -90,7 +90,6 @@ The **access_token** is a regular access token given by the [Login Service](http
 ### server -> client
 
 Event sent by the server to the client will be to be listened on as the following example:
-```javascript
 ```html
 <!-- room scope: user_joined: { user_id, room_id } -->
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -113,7 +112,6 @@ Event sent by the server to the client will be to be listened on as the followin
   
   /* ... */
 </script>
-```
 ```
 
 ##### namespace_scope
