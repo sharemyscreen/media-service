@@ -89,7 +89,7 @@ The **access_token** is a regular access token given by the [Login Service](http
 
 ### server -> client
 
-##### namespace ccope
+##### namespace scope
 
 * `user_connected: { user_id }` - emitted when a user connects to the namespace.
 * `user_disconnected: { user_id }` - emitted when a user disconnects from the namespace.
@@ -105,16 +105,20 @@ The **access_token** is a regular access token given by the [Login Service](http
  
 ##### user scope
 
+* `room_list: { [rooms] }` - emitted when *list_rooms* is called or you have been just connected to the namespace.
 * `invited: { user_id, room_id }` - emitted when you have been added to a room.
 * `kicked: { user_id, room_id }` - emitted when you have been removed from a room.
 * `called: { user_id, room_id }` - emitted when you are being called from a room.
 
 ### client -> server
 
+* `list_rooms: {}` - to emit to get all rooms you are in.
 * `create_room: { name, [users_id] }` - to emit to create a room.
+* `read_room: { room_id }` - to emit to get room properties.
+* `update_room: { room_id, name }` - to emit to change a room properties.
 * `delete_room: { room_id }` - to emit to delete a room.
-* `kick_user: { room_id, [users_id] }` - to emit to kick a user from a room.
-* `invite_user: { room_id, [users_id] }` - to emit to invite a user in a room.
+* `kick_user: { room_id, user_id | [users_id] }` - to emit to kick a user from a room.
+* `invite_user: { room_id, user_id | [users_id] }` - to emit to invite a user in a room.
 * `start_call: { room_id }` - to emit to start a call.
 * `accept_call: { room_id }` - to emit to accept a call.
 * `reject_call: { room_id }` - to emit to reject a call.
