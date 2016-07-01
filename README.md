@@ -89,12 +89,39 @@ The **access_token** is a regular access token given by the [Login Service](http
 
 ### server -> client
 
-##### namespace scope
+Event sent by the server to the client will be to be listened on as the following example:
+```javascript
+```html
+<!-- room scope: user_joined: { user_id, room_id } -->
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script type="text/javascript">
+  var socket = io.connect('ws://localhost:5000/${organization_public_id}');
+  
+  /* ... */
+  
+  socket.on('room_scope', function (data) {
+    /**
+     * data.cmd === 'user_joined'
+     * data.user_id
+     * data.room_id
+     */
+     
+     switch (data.cmd) {
+       /* Here is your logic */
+     }
+  });
+  
+  /* ... */
+</script>
+```
+```
+
+##### namespace_scope
 
 * `user_connected: { user_id }` - emitted when a user connects to the namespace.
 * `user_disconnected: { user_id }` - emitted when a user disconnects from the namespace.
 
-##### room scope
+##### room_scope
 
 * `user_joined: { user_id, room_id }` - emitted when a user joined the room.
 * `user_left: { user_id, room_id }` - emitted when a user left the room.
@@ -103,7 +130,7 @@ The **access_token** is a regular access token given by the [Login Service](http
 * `user_call_accepted: { user_id, room_id }` - emitted when a user accepts a call.
 * `user_call_rejected: { user_id, room_id }` - emitted when a user accepts a call.
  
-##### user scope
+##### user_scope
 
 * `room_list: { [rooms] }` - emitted when *list_rooms* is called or you have been just connected to the namespace.
 * `invited: { user_id, room_id }` - emitted when you have been added to a room.
