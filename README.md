@@ -104,8 +104,9 @@ The **access_token** is a regular access token given by the [Login Service](http
  
 ##### User Scope
 
-* `invited: { user_id: , room_id: }` - emitted you've been added to a room.
-* `kicked: { user_id: , room_id: }` - emitted you've been removed from a room.
+* `invited: { user_id: , room_id: }` - emitted when you have been added to a room.
+* `kicked: { user_id: , room_id: }` - emitted when you have been removed from a room.
+* `called: { user_id: , room_id: }` - emitted you are being called from a room.
 
 ### Client -> Server
 
@@ -114,4 +115,6 @@ The **access_token** is a regular access token given by the [Login Service](http
 * `kick_user: { room_id: , users_id: [] }` - to emit to kick a user from a room.
 * `invite_user: { room_id: , users_id: [] }` - to emit to invite a user in a room.
 * `call: { room_id: }` - to emit to start a call.
+* `accept_call: { room_id: }` - to emit to accept a call.
+* `reject_call: { room_id: }` - to emit to reject a call.
 * `message: { room_id: , content: }` - to emit to send a message to the room.
