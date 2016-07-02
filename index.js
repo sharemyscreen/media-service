@@ -2,9 +2,9 @@
 
 const mongoose = require('mongoose');
 
+const config = require('../utils/config');
 const logger = require('./lib/utils/logger');
 const server = require('./lib/server').createServer();
-const {config} = require('./package.json');
 
 mongoose.connection.on('error', err => {
 	logger.error('Unable to connect to mongodb service');
@@ -21,9 +21,8 @@ mongoose.connection.on('open', () => {
 			logger.error(err);
 			throw err;
 		}
-
-		server.listen(process.env.SMS_MEDIA_PORT || config.port);
+		server.listen(config.port);
 	});
 });
 
-mongoose.connect(process.env.SMS_MONGO_URI || config.mongoUri);
+mongoose.connect(config.mongoUri);

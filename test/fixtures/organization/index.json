@@ -1,0 +1,23 @@
+{
+  "user1": {
+    "email": "user1@org.com",
+    "password": "password",
+    "first_name": "Maxime",
+    "last_name": "Guedj"
+  },
+  "user2": {
+    "email": "user2@org.com",
+    "password": "password",
+    "first_name": "Maxime",
+    "last_name": "Guedj"
+  },
+  "client": {
+    "name": "Test org",
+    "key": "TestOrgrKey",
+    "secret": "TestOrgSecret"
+  },
+  "token1": "TestOrgAccessToken",
+  "token2": "TestOrgAccessToken2",
+  "org": "OrgName",
+  "nOrg": "nOrgName"
+}

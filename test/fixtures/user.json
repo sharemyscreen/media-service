@@ -1,0 +1,26 @@
+[
+  {
+    "email": "zuser1@test.com",
+    "password": "password",
+    "first_name": "Maxime",
+    "last_name": "Guedj"
+  },
+  {
+    "email": "zuuser1@test.com",
+    "password": "password",
+    "first_name": "uMaxime",
+    "last_name": "uGuedj"
+  },
+  {
+    "email": "zuser2@test.com",
+    "password": "password",
+    "first_name": "Maxime",
+    "last_name": "Guedj"
+  },
+  {
+    "email": "puser3@test.com",
+    "password": "password",
+    "first_name": "Maxime",
+    "last_name": "Guedj"
+  }
+]

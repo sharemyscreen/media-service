@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Test user",
+    "key": "TestUserKey",
+    "secret": "TestUserSecret"
+  }
+]

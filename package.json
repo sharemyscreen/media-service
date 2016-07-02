@@ -5,16 +5,24 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "istanbul cover _mocha -- test/test.js -R spec",
+    "test": "gulp test",
     "preversion": "gulp lint && npm test",
-    "version": "gulp changelog && gulp doc && git add CHANGELOG.md doc",
+    "version": "gulp changelog && git add CHANGELOG.md",
     "postversion": "git push origin master --tags"
   },
   "config": {
-    "port": 5000,
-    "mqMasterUri": "tcp://localhost:7777/",
-    "mongoUri": "mongodb://localhost:27017/sms",
-    "kurentoUri": "ws://localhost:8888/kurento"
+    "development": {
+      "port": 5000,
+      "mqMasterUri": "tcp://localhost:7777/",
+      "mongoUri": "mongodb://localhost:27017/sms",
+      "kurentoUri": "ws://localhost:8888/kurento"
+    },
+    "test": {
+      "port": 5000,
+      "mqMasterUri": "tcp://localhost:7777/",
+      "mongoUri": "mongodb://localhost:27017/sms_media_test",
+      "kurentoUri": "ws://localhost:8888/kurento"
+    }
   },
   "repository": {
     "type": "git",
@@ -33,23 +41,28 @@
     "mongoose": "^4.5.2",
     "sharemyscreen-common": "git+https://git@github.com/sharemyscreen/common.git",
     "socket.io": "^1.4.8",
-    "socketio-auth": "0.0.5",
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "async": "^2.0.0-rc.6",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-changelogmd": "^1.0.6",
+    "gulp-env": "^0.4.0",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-mocha": "^2.2.0",
     "gulp-shell": "^0.5.2",
     "gulp-xo": "^0.12.0",
     "require-dir": "^0.3.0",
+    "socket.io-client": "^1.4.8",
     "xo": "^0.16.0"
   },
   "xo": {
     "esnext": true,
-		"env": [
-			"mocha",
-			"node"
-		],
+    "env": [
+      "mocha",
+      "node"
+    ],
     "rules": {
       "camelcase": [
         "error",
