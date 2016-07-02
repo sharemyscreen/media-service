@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const config = require('../utils/config');
+const config = require('./lib/utils/config');
 const logger = require('./lib/utils/logger');
 const server = require('./lib/server').createServer();
 
