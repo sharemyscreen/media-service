@@ -133,7 +133,6 @@ Events emitted from server to client are to be listened on as the following exam
 * `room_list: { [rooms] }` - emitted when *list_rooms* is called or you have been just connected to the namespace.
 * `invited: { user_id, room_id }` - emitted when you have been added to a room.
 * `kicked: { user_id, room_id }` - emitted when you have been removed from a room.
-* `called: { user_id, room_id }` - emitted when you are being called from a room.
 
 ### client -> server
 
