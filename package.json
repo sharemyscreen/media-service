@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/sharemyscreen/media-service#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.6",
     "axon": "^2.0.2",
     "kurento-client": "^6.5.0",
     "lodash": "^4.13.1",
@@ -44,7 +45,6 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "async": "^2.0.0-rc.6",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-changelogmd": "^1.0.6",
