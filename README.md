@@ -70,7 +70,7 @@ After having successfully connected the socket, the media service will expect it
 <script type="text/javascript">
   var socket = io.connect('ws://localhost:5000/${organization_public_id}');
 
-  socket.emit('authentication', { access_token: ${access_token} });
+  socket.emit('authenticate', { access_token: ${access_token} });
   socket.on('authenticated', function () {
     // Authentication successful
     // Use the socket from here
